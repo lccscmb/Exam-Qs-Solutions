@@ -1,0 +1,41 @@
+#Question 1
+#This calculator can only add and subtract #(i)
+name = input("Please enter your name:") #(ii)
+print("Hello",name,".") #(iii)
+print("Welcome to the addition and subtraction calculator.")
+
+num1 = int(input("Enter the first number:")) #(iv)
+num2 = int(input("Enter the second number:")) #(iv)
+
+print('Do you want me to (a)dd or (s)ubtract?')
+choice = input()
+
+if choice == 'a' or choice =='A': #(vi)
+    print (num1, "+" ,num2, "=" ,(num1 + num2)) #(v)
+elif choice == 's' or choice == 'S': #(vi)
+    print (num1, "-" ,num2, "=" ,(num1 - num2)) #(v)
+else:
+    print("Invalid option")
+    while choice != 'a' or choice != 'A' or choice != 'S' or choice != 's':
+        print('Do you want me to (a)dd or (s)ubtract?')
+        choice = input()
+        if choice == 'a' or choice =='A': 
+            print (num1, "+" ,num2, "=" ,(num1 + num2))
+            break
+        elif choice == 's' or choice == 'S':
+            print (num1, "-" ,num2, "=" ,(num1 - num2))
+            break
+        else:
+            print("Invalid option")
+
+#Question 2 
+squared_numbers = []
+counter = 1
+for i in range (20):
+    squared = counter * counter
+    squared_numbers.append(squared)
+    counter+=1
+print(squared_numbers)
+
+myNumber = int(input("Which squared number would you like to see? 1-20: "))
+print(squared_numbers[myNumber-1])
