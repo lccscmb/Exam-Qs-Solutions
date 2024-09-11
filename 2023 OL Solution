@@ -1,0 +1,12 @@
+# Question 16(a)
+# Examination Number:
+print("********************") #(ii)
+print("Times Table program") #(i)
+print("********************") #(ii)
+
+number = int(input("Enter number: ")) #(iii)
+if number < 0: #(iv)
+    print("This program does not support negative numbers")
+else: #(iv)
+    for i in range(13): #(v)
+        print(i, "x", number, "=", number*i) #(vi)
