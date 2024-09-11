@@ -10,3 +10,24 @@ if number < 0: #(iv)
 else: #(iv)
     for i in range(13): #(v)
         print(i, "x", number, "=", number*i) #(vi)
+
+
+# Question 16(b)
+# Examination Number:
+
+# Display a welcome message
+print("Welcome to Temperature Alert System")
+
+# Ask the user to enter the temperature
+temperature = int(input("Enter temperature value in degrees: "))
+
+# Display a message based on the value of temperature
+# If temperature is less than 20 degrees display too cold
+if temperature <20:
+    print("Too cold. Turn up heating.")
+# Else if temperature is between 20 and 24 display just right
+elif temperature>=20 and temperature <=24:
+    print("Temperature is just right.")
+# Otherwise temperature must be above 24 degrees. Display too warm.
+else:
+    print("Too warm. Turn down heating. ")
