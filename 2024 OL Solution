@@ -17,3 +17,21 @@ elif (age < 17): #(iv)
 else:
     print(name, "you are entitled to apply for a driving licence.")
 
+# Question 16(b)
+# Examination Number:
+
+print("Split Bill Calculator")
+
+# Accept the amount of the bill and cast as float to accept decimal
+myBill = float(input("How much is the bill?: "))
+
+# Accept the number of people and cast as an integer
+numberOfPeople = int(input("How many people?: "))
+
+# Calculate the amount owed by each person by dividing
+# the bill total by the number of people
+bill_per_person = myBill / numberOfPeople
+
+# Display the amount owed by each person
+
+print("You each owe", bill_per_person)
