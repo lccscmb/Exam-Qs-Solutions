@@ -1,0 +1,15 @@
+
+wages = int(input("Please enter your annual wages: "))
+tax_credits = 1700
+cutoff = 36800
+def income_tax(wages, tax_credits, cutoff):
+    print("Welcome to my income tax calculator")
+    if wages < cutoff :
+        print("You pay no income tax")
+    else:
+        print("You will have to pay income tax")
+    income_tax = cutoff *0.2 + (wages - cutoff ) * 0.4
+    income_tax_net = income_tax-tax_credits
+    print ("your income tax bill is: €", round (income_tax_net, 2))
+    print("The percentage you lost to tax was: ", round(income_tax_net /wages* 100,2), "%")
+income_tax (wages, tax_credits,cutoff )
