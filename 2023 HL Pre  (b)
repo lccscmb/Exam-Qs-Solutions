@@ -1,0 +1,37 @@
+
+import random
+faces = ["1","2","3","4","5","6","7","8","9","10", "11","12","13"]
+suits = ["C", "D", "H","S"]
+player_face = faces[random.randint(0,12)]
+player_suit = suits[random.randint(0,3)]
+player_draw = player_face+player_suit
+print("Your draw was: ",player_draw)
+bet = int(input("Please enter your bet: "))
+computer_face = faces [random.randint(0,12)]
+computer_suit = suits[random.randint(0,3)]
+computer_draw = computer_face+computer_suit
+print("The computer draw was: ", computer_draw)
+player_face_num = int(player_face)
+computer_face_num = int(computer_face)
+
+if player_face_num > computer_face_num:
+    print("Well done")
+    print("You win: €", bet*3)
+elif player_face_num < computer_face_num:
+    print("You lose!")
+else:
+    if player_suit == "C" and computer_suit != "C":
+        print("You lose")
+    elif player_suit == "S" and computer_suit != "S":
+        print("Well done")
+        print("You win: €", bet*3)
+    elif player_suit == computer_suit:
+        print("Draw")
+    elif player_suit == "D" and computer_suit == "H":
+        print("You lose")
+    elif player_suit == "H" and computer_suit == "C":
+        print("Well done")
+        print("You win: €", bet*3)
+    elif player_suit == "H" and computer_suit == "D":
+        print("Well done")
+        print("You win: €", bet*3)
