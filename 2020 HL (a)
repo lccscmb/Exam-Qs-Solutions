@@ -1,0 +1,50 @@
+password = input (" Enter a password : ")
+
+LOWER_CASE_LETTERS = " abcdefghijklmnopqrstuvwxyz "
+
+UPPER_CASE_LETTERS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+lowercase = False 
+uppercase = False
+
+digit = False 
+
+for character in password :
+    if character in LOWER_CASE_LETTERS :
+        lowercase = True
+    if character in UPPER_CASE_LETTERS :
+        uppercase = True
+    if character in " 0123456789 ":
+        digit = True
+score = 0
+# Rule 1: Adjust score based on password length
+if len ( password ) > 7:
+    score += 5
+elif 4 <= len ( password ) <= 7:
+    score += 2
+else :
+    score -= 2
+# Rule 2: Password contains at least one lowercase letter
+if lowercase :
+    score += 1
+
+if lowercase and uppercase :
+    score += 5
+# Rule 4: Password contains at least one uppercase letter
+if uppercase :
+    score += 2
+# Rule 5: Password contains at least one digit
+if digit :
+    score += 5
+# Rule 6: First and /or last character is a digit
+if password and password [0] in " 0123456789 ":
+    score += 1
+if password and password [ -1] in " 0123456789 ":
+    score += 1
+if password and len ( password ) >= 2 and password [0] in "0123456789 " and password [ -1] in " 0123456789 ":
+    score += 2
+# Rule 7: Password contains only digits
+if password . isdigit () :
+    score -= 10
+# Display the password and score
+print ( f" Password : { password }")
+print ( f" Score : { score }")
