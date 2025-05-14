@@ -1,0 +1,5 @@
+list1 = [4, 5, 9, 8, 10, 17, 99, 77]
+list1.sort()
+mid = len(list1) // 2
+res = (list1[mid] + list1[mid-1]) / 2
+print("Median of list is: " + str(res))
