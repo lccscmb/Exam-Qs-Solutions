@@ -1,0 +1,58 @@
+LOWER_CASE_LETTERS = " abcdefghijklmnopqrstuvwxyz "
+
+UPPER_CASE_LETTERS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+
+def calculate_score ( password ) :
+
+    lowercase = False 
+    uppercase = False
+    for character in password :
+        if character in LOWER_CASE_LETTERS :
+            lowercase = True
+        if character in UPPER_CASE_LETTERS :
+            uppercase = True
+    score = 0
+    # Rule 1
+    if len ( password ) > 7:
+        score += 5
+    # Rule 2
+    if lowercase :
+        score += 1
+# Rule 3
+    if lowercase and uppercase :
+        score += 5
+    return score
+
+def is_strong ( password ) :
+    lowercase = False
+
+    uppercase = False
+    for character in password :
+        if character in LOWER_CASE_LETTERS :
+            lowercase = True
+        if character in UPPER_CASE_LETTERS :
+            uppercase = True
+    return len ( password ) > 7 and lowercase and uppercase
+test_passwords = [" sun ", " Sun ", " Sunshine ", " 12345 ", " Moonlight"]
+
+test_passwords [4] = " Moonlight "
+
+print ("| Score | Password |")
+print ("| - - - - - - -| - - - - - - - - - -|")
+min_score = float ('inf')
+weakest_password = ""
+for password in test_passwords :
+    pass_score = calculate_score ( password )
+    print ( f"| { pass_score : <5} | { password : <8} |")
+    if pass_score < min_score :
+        min_score = pass_score
+        weakest_password = password
+
+print ()
+print ( f" The weakest password is: { weakest_password }")
+print ( f" Score : { min_score }")
+
+print (" The strong passwords are :")
+for password in test_passwords :
+    if is_strong ( password ) :
+        print ( password )
