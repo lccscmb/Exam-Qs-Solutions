@@ -1,0 +1,37 @@
+#Part A
+
+option = input("Would you like to (a)dd, (s)ubtract, (m)ultiply or (d)ivide?")
+num1 = int(input("Please enter your first number: "))
+num2 = int(input("Please enter your second number: "))
+if option == "a":
+    print (num1, " + ", num2, "=", round (num1 + num2, 2))
+if option == "s":
+    print (num1, " - ", num2, "=", round (num1 - num2, 2))
+if option == "m":
+    print (num1, " x ", num2, "=", round (num1 * num2, 2))
+if option == "d":
+    print (num1, " / ", num2, "=", round (num1 / num2, 2))
+
+#Part B
+
+import random
+
+words = ["cat", "mat", "can", "man", "pool", "tool", "mule", "pat", "tan", "rule"]
+print("The list of words is:", words)
+
+
+random_word = words[random.randint(0, len(words) - 1)]
+
+print("The length of the word is:", len(random_word))
+print("The first letter in the word is:", random_word[0])
+
+for attempt in range(3):
+    guess = input("Please guess what the word is: ")
+    if guess == random_word:
+        print("Well done!")
+        break
+    else:
+        print("You guessed incorrectly, try again.")
+
+if guess != random_word:
+    print("The word was:", random_word)
