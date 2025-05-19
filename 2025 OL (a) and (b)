@@ -1,0 +1,45 @@
+#Part A
+value_small_containers = 0.15
+number_small_containers = int(input("Please enter how many small containers you are returning: "))
+
+#i
+total_small_containers = value_small_containers*number_small_containers
+print("The total value of your_small_containers was : €", total_small_containers)
+
+#ii
+value_large_containers = 0.25
+number_large_containers = int(input("Please enter how many large containers you are returning : "))
+total_large_containers = value_large_containers*number_large_containers
+print("The total value of your large containers was : €", total_large_containers)
+
+#iii
+grand_total = total_large_containers + total_small_containers
+print("Your grand total was : € ", grand_total)
+
+#iv
+shopping_bill = float(input("Please enter your shopping bill : "))
+print ("Your shopping bill with the deposit return is : €",
+shopping_bill-grand_total)
+
+#Part B
+import random
+print("Your options are as follows: d4, d6, d12 and d20")
+n = int(input("Which type of dice do you want? 4,6,12 or 20: "))
+if n == 4:
+    print("You will roll a 4-sided dice")
+    dice = random.randint(1,n)
+    print("The r oll wa s : ",dice)
+elif n == 6 :
+    print("You will roll a 6-sided dice")
+    dice = random . randint(1,n)
+    print("The r oll wa s : ",dice)
+elif n == 12 :
+    print("You will roll a 12-sided dice")
+    dice = random . randint(1 , n)
+    print("The r oll wa s : ",dice)
+elif n == 20 :
+    print("You will roll a 20-sided dice")
+    dice = random . randint(1 , n)
+    print("The roll was: ",dice)
+else :
+    print("You made an incorrect choice")
