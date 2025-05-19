@@ -1,0 +1,71 @@
+#Part A
+
+s = 0
+sentence = input("Please enter a sentence: ")
+
+# (i) Count how many times 's' or 'S' appears
+for letter in sentence:
+    if letter == "s" or letter == "S":
+        s = s + 1
+print("The number of S's was:", s)
+
+# (ii) Count vowels in the sentence
+vowels = 0
+print("Your sentence was:", sentence)
+sentence = sentence.lower()
+print("Your lowercase sentence is:", sentence)
+
+for letter in sentence:
+    if letter == "a" or letter == "e" or letter == "i" or letter == "o" or letter == "u":
+        vowels = vowels + 1
+print("The number of vowels was:", vowels)
+
+# (iii) Count letters and digits
+letters = 0
+digits = 0
+for letter in sentence:
+    if letter.isalpha():
+        letters = letters + 1
+    elif letter.isdigit():
+        digits = digits + 1
+print("The number of letters was:", letters)
+print("The number of digits was:", digits)
+
+# (iv) Count words (by counting spaces + 1)
+words = 1
+for letter in sentence:
+    if letter == " ":
+        words = words + 1
+print("The number of words was:", words)
+
+#Part B
+
+import random
+
+print("Welcome to my shop")
+total = 0
+item_list = []
+item_prices = []
+
+while True:
+    item = input("Please enter the item (type 'stop' to finish): ")
+    if item == "stop":
+        break
+    item_list.append(item)
+    price = float(input("Please enter the price of the item: "))
+    total = total + price
+    item_prices.append(price)
+    print("The current total is €", total)
+
+print("Your items are:", item_list)
+print("The prices are:", item_prices)
+print("Grand total €", total)
+
+random_number = random.randint(0, len(item_list) - 1)
+print("Your random item to be checked is:", item_list[random_number])
+
+# Most expensive item
+print("The most expensive item is:", item_list[item_prices.index(max(item_prices))])
+
+# Cheapest item
+print("The cheapest item is:", item_list[item_prices.index(min(item_prices))])
