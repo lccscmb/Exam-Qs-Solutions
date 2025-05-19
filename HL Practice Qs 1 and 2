@@ -1,0 +1,117 @@
+#Question 1
+
+# (i) Full result function with H1 to H8, and (vii) Pass/Fail label
+def result(mark):
+    if mark >= 90:
+        grade = "H1"
+    elif mark >= 80:
+        grade = "H2"
+    elif mark >= 70:
+        grade = "H3"
+    elif mark >= 60:
+        grade = "H4"
+    elif mark >= 50:
+        grade = "H5"
+    elif mark >= 40:
+        grade = "H6"
+    elif mark >= 30:
+        grade = "H7"
+    else:
+        grade = "H8"
+    
+    if mark >= 40:
+        return grade + " (Pass)"
+    else:
+        return grade + " (Fail)"
+
+# Results and names
+results = [49, 42, 72, 98, 61, 72, 74, 91, 67]
+names = ["Anna", "Ben", "Chloe", "David", "Ella", "Finn", "Grace", "Holly", "Ian"]
+
+# (ii) Calculate mean using N
+N = len(results)
+total = 0
+for mark in results:
+    total += mark
+mean = total / N
+print("Mean mark:", mean)
+
+# (iii) Print each mark and its grade
+print("\nEach mark and grade:")
+for mark in results:
+    print("The mark is", mark, "and the grade is", result(mark))
+
+# (iv) Count number of students in each grade
+grade_counts = {}
+for mark in results:
+    grade = result(mark)
+    if grade in grade_counts:
+        grade_counts[grade] += 1
+    else:
+        grade_counts[grade] = 1
+
+print("\nGrade counts:")
+for grade in grade_counts:
+    print(grade + ":", grade_counts[grade])
+
+# (v) Highest and lowest marks
+highest = max(results)
+lowest = min(results)
+print("\nHighest mark:", highest)
+print("Lowest mark:", lowest)
+
+# (vi) Median calculation
+sorted_results = sorted(results)
+if N % 2 == 1:
+    median = sorted_results[N // 2]
+else:
+    mid1 = sorted_results[N // 2 - 1]
+    mid2 = sorted_results[N // 2]
+    median = (mid1 + mid2) / 2
+
+print("Median:", median)
+
+# (viii) Print names with marks and grades
+print("\nStudent results:")
+for i in range(N):
+    print(names[i], "got", results[i], "which is grade", result(results[i]))
+
+# (ix) Store in dictionary and print
+print("\nStudent dictionary:")
+student_dict = {}
+for i in range(N):
+    student_dict[names[i]] = results[i]
+
+for name in student_dict:
+    mark = student_dict[name]
+    print(name, "got", mark, "which is grade", result(mark))
+
+#Question 2
+
+movies = {}
+
+for i in range(5):
+    name = input("Enter the name of movie " + str(i + 1) + ": ")
+    rating = float(input("Enter a rating out of 10 for '" + name + "': "))
+    movies[name] = rating
+
+
+print("\nMovie Ratings:")
+for movie in movies:
+    print(movie + " – Rating: " + str(movies[movie]))
+
+highest_rating = max(movies.values())
+for movie in movies:
+    if movies[movie] == highest_rating:
+        top_movie = movie
+print("\nTop-rated movie: " + top_movie + " (" + str(highest_rating) + "/10)")
+
+
+total = sum(movies.values())
+average = total / len(movies)
+print("Average rating: " + str(round(average, 2)))
+
+print("\nMovies rated above 8:")
+for movie in movies:
+    if movies[movie] > 8:
+        print(movie + " – " + str(movies[movie]))
