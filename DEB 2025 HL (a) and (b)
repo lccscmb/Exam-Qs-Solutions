@@ -1,0 +1,56 @@
+#Part A
+
+data_list=[23, 57, 38, 45, 91, 38, 76, 65, 54, 31, 77, 38, 13, 88, 47, 20, 13, 68]
+data_list.sort() #(i)
+def find_median(data_list):#(iii)
+    n = len(data_list)
+    middle = n //2
+    
+    if n % 2 == 0:
+        median = (data_list[middle - 1] + data_list[middle]) / 2
+    else:
+        meidan = data_list[middle]
+    
+    return median
+
+def stem_and_leaf_plot(data_list):
+    stem_leaf = []
+    for number in data_list:
+        stem = number // 10
+        leaf = number % 10
+        
+        found = False
+        for pair in stem_leaf:
+            if pair[0] == stem:
+                pair[1].append(leaf)
+                found = True
+                break
+        
+        if not found:
+            stem_leaf.append([stem, [leaf]])
+        
+        print("Stem | Leaf")
+        print("----- | -------")
+        for pair in stem_leaf:
+            leaves = " ".join(str(leaf) for leaf in sorted (pair[1]))
+            print(pair[0], "    |    ", leaves)
+
+stem_and_leaf_plot(data_list)
+#mean=sum(data_list)/len(data_list) #(ii)
+#median = find_median(data_list) #(iii)
+#print("The sorted list is: ", mean, "\nThe median of the list is : ",median,) #(ii) (iii)
+print("The range of the data set is : ", data_list[-1]-data_list[0])
+
+#Part B
+
+def hash_function(input_string):
+    
+    P = 23
+    ascii_sum = sum(ord(char)for char in input_string)
+    
+    hash_value = ascii_sum % P
+    
+    return hash_value
+
+input_string = input("Enter a string: ")
+print("The hash value for ", input_string, "is: ", hash_function(input_string))
